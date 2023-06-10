@@ -1,3 +1,4 @@
+import Button from './components/button';
 import useCount from './use-count';
 
 const Counter = () => {
@@ -8,15 +9,11 @@ const Counter = () => {
       <h1>Counter</h1>
       <p className="text-7xl">{count}</p>
       <div className="flex place-content-between w-full">
-        <button className="button" onClick={decrement}>
+        <Button className="button" onClick={decrement}>
           Decrement
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
-        <button className="button" onClick={increment}>
-          Increment
-        </button>
+        </Button>
+        <Button onClick={reset}>Reset</Button>
+        <Button onClick={increment}>Increment</Button>
       </div>
       <div>
         <form
@@ -32,9 +29,9 @@ const Counter = () => {
         >
           <label htmlFor="set-count">Set Count</label>
           <input type="number" id="set-count" name="set-count" />
-          <button className="button-primary" type="submit">
+          <Button variant="primary" type="submit">
             Set
-          </button>
+          </Button>
         </form>
       </div>
     </main>
