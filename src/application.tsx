@@ -1,8 +1,12 @@
+import { useState } from 'react';
+
 import Button from './components/button';
+import LabeledInput from './components/input';
 import useCount from './use-count';
 
 const Counter = () => {
   const { count, increment, decrement, reset, set } = useCount();
+  const [value, setValue] = useState(0);
 
   return (
     <main className="mx-auto w-96 flex flex-col gap-8 items-center">
@@ -20,15 +24,15 @@ const Counter = () => {
           className="flex gap-4 items-center"
           onSubmit={(e) => {
             e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const input = form.elements.namedItem(
-              'set-count',
-            ) as HTMLInputElement;
-            set(input.valueAsNumber);
+            set(value);
           }}
         >
-          <label htmlFor="set-count">Set Count</label>
-          <input type="number" id="set-count" name="set-count" />
+          <LabeledInput
+            id="set-count"
+            label="Set Count"
+            onChange={(e) => setValue(e.target.valueAsNumber)}
+            value={value}
+          />
           <Button variant="primary" type="submit">
             Set
           </Button>
