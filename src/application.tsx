@@ -33,6 +33,7 @@ const Counter = () => {
           <LabeledInput
             id="set-count"
             label="Set Count"
+            type="number"
             onChange={(e) => setValue(e.target.valueAsNumber)}
             value={value}
           />
